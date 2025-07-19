@@ -1,0 +1,318 @@
+/* ========== RESET BÁSICO E CONFIGURAÇÕES GLOBAIS ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f4ff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== CABEÇALHO ========== */
+.main-header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 200px;
+  width: auto;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #60a5fa;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  width: 33%;
+}
+
+.search-bar svg {
+  color: #60a5fa;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: 8px;
+  width: 100%;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.main-nav a {
+  font-weight: 500;
+  color: #4b5563;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #2563eb;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ========== SEÇÃO HERO ========== */
+.hero-section {
+  position: relative;
+  color: #fff;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-image {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  height: auto;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* ========== BOTÕES ========== */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #60a5fa;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #3b82f6;
+}
+
+.btn-secondary {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+.btn-secondary:hover {
+  background-color: #c7d2fe;
+}
+
+.btn-light {
+  background-color: #fff;
+  color: #2563eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-light:hover {
+  background-color: #f3f4f6;
+}
+
+/* ========== SEÇÃO DE VANTAGENS ========== */
+.features-section {
+  background-color: #fff;
+  padding: 80px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.feature-item {
+  padding: 24px;
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.feature-item h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+  color: #4b5563;
+}
+
+/* ========== SEÇÃO DE PÚBLICO ========== */
+.audience-section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #e6f0ff 100%);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e0e7ff;
+  padding: 32px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+
+.card img {
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-highlight {
+  border: 2px solid #2563eb;
+}
+
+/* ========== SEÇÃO DE CHAMADA FINAL ========== */
+.cta-section {
+  padding: 80px 0;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(90deg, #0052d4, #4364f7, #6fb1fc);
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* ========== RODAPÉ ========== */
+.main-footer {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  padding: 48px 0;
+  text-align: center;
+}
+
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #60a5fa;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 992px) {
+  .search-bar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  .mobile-menu-button {
+    display: block;
+  }
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  .features-grid,
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+}
