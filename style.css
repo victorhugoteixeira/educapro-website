@@ -58,14 +58,14 @@ a {
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: 1px solid #60a5fa;
+  border: 1px solid #1cc8f3;
   border-radius: 9999px;
   padding: 8px 16px;
   width: 33%;
 }
 
 .search-bar svg {
-  color: #60a5fa;
+  color: #1cc8f3;
 }
 
 .search-bar input {
@@ -153,11 +153,11 @@ a {
 }
 
 .btn-primary {
-  background-color: #60a5fa;
+  background-color: #1cc8f3;
   color: #fff;
 }
 .btn-primary:hover {
-  background-color: #3b82f6;
+  background-color: #1ab8e0;
 }
 
 .btn-secondary {
@@ -170,11 +170,16 @@ a {
 
 .btn-light {
   background-color: #fff;
-  color: #2563eb;
+  color: #1cc8f3;
+  border: 1px solid #1cc8f3;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 .btn-light:hover {
-  background-color: #f3f4f6;
+  background-color: #1cc8f3;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(28, 200, 243, 0.3);
 }
 
 /* ========== SEÇÃO DE VANTAGENS ========== */
@@ -257,11 +262,18 @@ a {
 .cta-section {
   padding: 80px 0;
   text-align: center;
-  color: #fff;
-  background: linear-gradient(90deg, #0052d4, #4364f7, #6fb1fc);
+  color: #0a2a5a;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.4) 0%,
+    rgba(255, 255, 255, 0.7) 25%,
+    rgba(9, 224, 242, 0.3) 75%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
 }
 
 .cta-section h2 {
+  color: #02108e;
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -294,7 +306,15 @@ a {
 /* ========== RESPONSIVIDADE ========== */
 @media (max-width: 992px) {
   .search-bar {
-    display: none;
+    width: 35%;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-image {
+    width: 35%;
   }
 }
 
@@ -302,17 +322,84 @@ a {
   .main-nav {
     display: none;
   }
+
   .mobile-menu-button {
     display: block;
   }
+
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    width: 30%;
+  }
+
   .features-grid,
   .audience-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
+
+  .feature-item {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
   .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .logo-img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .hero-content h1 {
     font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-image {
+    width: 25%;
+  }
+
+  .features-section,
+  .audience-section,
+  .cta-section {
+    padding: 60px 0;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
   }
 }
