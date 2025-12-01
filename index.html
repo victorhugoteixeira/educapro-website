@@ -47,7 +47,7 @@
         <nav class="main-nav">
           <a href="#">Cursos</a>
           <a href="#">Sobre</a>
-          <a href="#">Login</a>
+          <a href="#" id="login-link">Login</a>
         </nav>
 
         <button class="mobile-menu-button">
@@ -281,5 +281,218 @@
         </div>
       </div>
     </footer>
+
+    <!-- ========== MODAIS ========== -->
+    <!-- Overlay escuro de fundo -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+
+    <!-- Modal de Login -->
+    <div class="modal" id="login-modal">
+      <div class="modal-content">
+        <button class="modal-close" id="close-login">&times;</button>
+        <h2 class="modal-title">Faça seu login</h2>
+        <form id="login-form" class="modal-form">
+          <div class="form-group">
+            <label for="login-email">E-mail</label>
+            <input
+              type="email"
+              id="login-email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Senha</label>
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-modal">
+            Entrar
+          </button>
+          <a href="#" class="modal-link" id="forgot-password-link"
+            >Esqueci minha senha</a
+          >
+          <p class="modal-footer-text">
+            Não tem uma conta?
+            <a href="#" class="modal-link" id="register-link">Cadastre-se</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div class="modal" id="register-modal">
+      <div class="modal-content modal-large">
+        <button class="modal-close" id="close-register">&times;</button>
+        <div class="modal-header">
+          <img
+            src="img/logo-EducaPro (3).png"
+            alt="EducaPro Logo"
+            class="modal-logo"
+          />
+        </div>
+        <p class="modal-subtitle">Preencha para continuar</p>
+        <form id="register-form" class="modal-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="register-name">Nome</label>
+              <input
+                type="text"
+                id="register-name"
+                placeholder="Digite seu nome completo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-phone">Telefone</label>
+              <input
+                type="tel"
+                id="register-phone"
+                placeholder="Digite seu telefone"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-education">Nível de educação</label>
+            <select id="register-education" required>
+              <option value="">Selecione</option>
+              <option value="fundamental">Ensino Fundamental</option>
+              <option value="medio">Ensino Médio</option>
+              <option value="superior">Ensino Superior</option>
+              <option value="pos">Pós-graduação</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="register-email">E-mail</label>
+            <input
+              type="email"
+              id="register-email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="register-birthdate">Data de nascimento</label>
+              <input
+                type="text"
+                id="register-birthdate"
+                placeholder="dd/mm/aaaa"
+                maxlength="10"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="register-address">Endereço</label>
+              <input
+                type="text"
+                id="register-address"
+                placeholder="Digite seu endereço"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-objective">Objetivo de aprendizagem</label>
+            <select id="register-objective" required>
+              <option value="">Selecione</option>
+              <option value="carreira">Desenvolvimento de Carreira</option>
+              <option value="pessoal">Crescimento Pessoal</option>
+              <option value="academico">Aperfeiçoamento Acadêmico</option>
+              <option value="negocio">Empreendedorismo</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="register-password">Senha</label>
+              <div class="password-input-wrapper">
+                <input
+                  type="password"
+                  id="register-password"
+                  placeholder="Crie sua senha"
+                  required
+                />
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggle-password"
+                  aria-label="Mostrar senha"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="register-confirm-password">Confirmar senha</label>
+              <input
+                type="password"
+                id="register-confirm-password"
+                placeholder="confirmar senha"
+                required
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-modal">
+            Enviar
+          </button>
+          <div class="modal-footer-links">
+            <a href="#" class="modal-link" id="register-instructor-link"
+              >Cadastrar-se como instrutor</a
+            >
+            <a href="#" class="modal-link" id="back-to-login-link"
+              >Já tem conta? Faça login</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal de Recuperação de Senha -->
+    <div class="modal" id="recovery-modal">
+      <div class="modal-content">
+        <button class="modal-close" id="close-recovery">&times;</button>
+        <h2 class="modal-title">Recuperar senha</h2>
+        <form id="recovery-form" class="modal-form">
+          <div class="form-group">
+            <label for="recovery-email">E-mail</label>
+            <input
+              type="email"
+              id="recovery-email"
+              placeholder="Digite seu e-mail"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-modal">
+            Enviar
+          </button>
+          <a href="#" class="modal-link" id="back-to-login-from-recovery"
+            >← Voltar para login</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
