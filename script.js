@@ -140,11 +140,14 @@ loginForm.addEventListener("submit", (e) => {
   }
 
   // Se passou na validação, pode enviar (aqui você faria a requisição ao servidor)
-  alert(
-    "Login realizado com sucesso! (Funcionalidade de autenticação em desenvolvimento)"
-  );
+  alert("Login realizado com sucesso! Redirecionando para o dashboard...");
   closeModal(loginModal);
   loginForm.reset();
+
+  // Redirecionar para o dashboard após 1 segundo
+  setTimeout(() => {
+    window.location.href = "dashboard.html";
+  }, 1000);
 });
 
 registerForm.addEventListener("submit", (e) => {
