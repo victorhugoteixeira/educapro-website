@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notificações - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/library.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="notifications-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="#">Cursos</a>
+            <a href="#">Para Empresas</a>
+            <a href="#">Sobre Nós</a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar cursos..." />
+          </div>
+          <button
+            class="icon-btn active"
+            aria-label="Notificações"
+            id="notifications-btn"
+          >
+            <i class="ph ph-bell"></i>
+          </button>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="dashboard.html">
+                <i class="ph ph-chart-line-up"></i>
+                Dashboard
+              </a>
+              <a href="library.html">
+                <i class="ph ph-books"></i>
+                Biblioteca
+              </a>
+              <a href="settings.html">
+                <i class="ph ph-gear"></i>
+                Configurações
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="notifications-main">
+      <div class="notifications-container">
+        <!-- Page Header -->
+        <div class="notifications-header-section">
+          <h1 class="notifications-title">Notificações</h1>
+          <p class="notifications-subtitle">
+            Fique por dentro das atualizações importantes da EducaPro.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="notification-filters">
+          <button class="filter-tab active" data-filter="all">Todas</button>
+          <button class="filter-tab" data-filter="courses">
+            <i class="ph ph-book"></i>
+            Novos Cursos
+          </button>
+          <button class="filter-tab" data-filter="deadlines">
+            <i class="ph ph-clock"></i>
+            Prazos
+          </button>
+          <button class="filter-tab" data-filter="messages">
+            <i class="ph ph-chat-circle"></i>
+            Mensagens
+          </button>
+          <button class="filter-tab" data-filter="updates">
+            <i class="ph ph-sparkle"></i>
+            Atualizações
+          </button>
+        </div>
+
+        <!-- Notifications List -->
+        <div class="notifications-list">
+          <!-- Today Section -->
+          <div class="notification-section">
+            <h3 class="notification-section-title">Hoje</h3>
+
+            <div class="notification-item unread" data-type="messages">
+              <div class="notification-icon" style="background: #10b981">
+                <i class="ph ph-chat-circle"></i>
+              </div>
+              <div class="notification-content">
+                <h4>Ana C. enviou uma nova mensagem no curso de Python.</h4>
+                <p>
+                  "Oi Livia, você poderia dar uma olhada no meu último commit?"
+                </p>
+              </div>
+              <div class="notification-meta">
+                <span class="unread-dot"></span>
+                <i class="ph ph-arrow-right"></i>
+              </div>
+            </div>
+
+            <div class="notification-item unread" data-type="deadlines">
+              <div
+                class="notification-icon"
+                style="background: var(--color-danger)"
+              >
+                <i class="ph ph-clock"></i>
+              </div>
+              <div class="notification-content">
+                <h4>Sua tarefa 'Projeto Final de React' vence amanhã.</h4>
+                <p>
+                  Não se esqueça de submeter antes do prazo final!
+                  <span class="notification-time">1 hora</span>
+                </p>
+              </div>
+              <div class="notification-meta">
+                <span class="unread-dot"></span>
+                <i class="ph ph-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Yesterday Section -->
+          <div class="notification-section">
+            <h3 class="notification-section-title">Ontem</h3>
+
+            <div class="notification-item" data-type="courses">
+              <div
+                class="notification-icon"
+                style="background: var(--color-primary)"
+              >
+                <i class="ph ph-book"></i>
+              </div>
+              <div class="notification-content">
+                <h4>Novo curso disponível: Design de UI/UX com Figma.</h4>
+                <p>
+                  Não se esqueça de submeter antes do prazo final!
+                  <span class="notification-time">12 de Jul, 10:00</span>
+                </p>
+              </div>
+              <div class="notification-meta">
+                <i class="ph ph-arrow-right"></i>
+              </div>
+            </div>
+
+            <div class="notification-item" data-type="updates">
+              <div class="notification-icon" style="background: #8b5cf6">
+                <i class="ph ph-sparkle"></i>
+              </div>
+              <div class="notification-content">
+                <h4>
+                  A plataforma foi atualizada com um novo recurso de favoritos.
+                </h4>
+                <p>
+                  Agora você pode salvar seus cursos preferidos para depois.
+                  <span class="notification-time">10 de Jul, 09:00</span>
+                </p>
+              </div>
+              <div class="notification-meta">
+                <i class="ph ph-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+          <button class="btn btn-secondary" id="load-more-notifications">
+            Carregar mais
+          </button>
+        </div>
+      </div>
+
+      <!-- ========== MODAL DE CONFIGURAÇÕES ========== -->
+      <div class="notifications-actions-modal" id="notifications-actions-modal">
+        <div class="actions-modal-content">
+          <div class="actions-modal-header">
+            <h3>Ações</h3>
+            <div class="actions-header-links">
+              <a href="#" id="mark-all-read">Marcar todas como lidas</a>
+              <button class="modal-close" id="close-actions-modal">
+                <i class="ph ph-x"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="actions-modal-search">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar notificações..." />
+          </div>
+
+          <div class="actions-modal-section">
+            <h4>Configurações</h4>
+
+            <div class="settings-option">
+              <div class="option-info">
+                <h5>Notificações por E-mail</h5>
+                <p>Receba um resumo no e-mail</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="email-notifications-toggle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-option">
+              <div class="option-info">
+                <h5>Sons de Alerta</h5>
+                <p>Tocar som para novas notificações</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="alert-sounds-toggle" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="actions-modal-footer">
+            <a href="settings.html" class="btn btn-primary">
+              Gerenciar todas as configurações
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/library.js"></script>
+  </body>
+</html>
