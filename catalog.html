@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Cursos - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+  </head>
+  <body class="catalog-page">
+    <!-- ========== HEADER ========== -->
+    <header class="catalog-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="catalog.html" class="nav-link active">Cursos</a>
+            <a href="#">Para Empresas</a>
+            <a href="#">Sobre Nós</a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar cursos..." />
+          </div>
+          <a
+            href="notifications.html"
+            class="icon-btn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+          </a>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="dashboard.html">
+                <i class="ph ph-chart-line-up"></i>
+                Dashboard
+              </a>
+              <a href="library.html">
+                <i class="ph ph-books"></i>
+                Biblioteca
+              </a>
+              <a href="settings.html">
+                <i class="ph ph-gear"></i>
+                Configurações
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="catalog-main">
+      <div class="catalog-container">
+        <div class="catalog-layout">
+          <!-- ========== SIDEBAR DE FILTROS ========== -->
+          <aside class="catalog-sidebar">
+            <div class="filters-header">
+              <h3>Filtros</h3>
+              <button class="clear-filters-btn" id="clear-filters">
+                Limpar
+              </button>
+            </div>
+
+            <!-- Categoria -->
+            <div class="filter-section">
+              <h4 class="filter-title">Categoria</h4>
+              <div class="filter-options">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="category" value="programming" />
+                  <span>Programação</span>
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="design"
+                    checked
+                  />
+                  <span>Design</span>
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="marketing"
+                    checked
+                  />
+                  <span>Marketing</span>
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="category"
+                    value="business"
+                    checked
+                  />
+                  <span>Negócios</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Nível -->
+            <div class="filter-section">
+              <h4 class="filter-title">Nível</h4>
+              <div class="filter-options">
+                <label class="radio-label">
+                  <input type="radio" name="level" value="beginner" checked />
+                  <span>Iniciante</span>
+                </label>
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="level"
+                    value="intermediate"
+                    checked
+                  />
+                  <span>Intermediário</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="level" value="advanced" checked />
+                  <span>Avançado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Avaliações -->
+            <div class="filter-section">
+              <h4 class="filter-title">Avaliações</h4>
+              <div class="filter-options">
+                <label class="radio-label">
+                  <input type="radio" name="rating" value="4" checked />
+                  <span>★★★★ & up</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="rating" value="3" checked />
+                  <span>★★★ & up</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="rating" value="any" />
+                  <span>Qualquer</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Duração -->
+            <div class="filter-section">
+              <h4 class="filter-title">Duração</h4>
+              <div class="filter-options">
+                <label class="radio-label">
+                  <input type="radio" name="duration" value="any" />
+                  <span>Qualquer</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="duration" value="<2" checked />
+                  <span>&lt;2 horas</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="duration" value="2-5" checked />
+                  <span>2-5 horas</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="duration" value="+5" checked />
+                  <span>+5 horas</span>
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+          <div class="catalog-content">
+            <!-- Curso em Destaque -->
+            <div class="featured-course">
+              <div class="featured-course-content">
+                <h2>React: Crie Interfaces Modernas do Zero ao Avançado</h2>
+                <p>
+                  Aprenda a construir aplicações web reativas e de alta
+                  performance com a biblioteca mais popular do mercado.
+                </p>
+                <a href="course-detail.html" class="btn btn-primary">
+                  Inscreva-se Agora
+                </a>
+              </div>
+              <div class="featured-course-icon">
+                <i class="ph ph-atom"></i>
+              </div>
+            </div>
+
+            <!-- Grid de Cursos -->
+            <div class="courses-grid" id="courses-grid">
+              <div
+                class="course-card"
+                data-category="programming"
+                data-level="beginner"
+                data-rating="5"
+              >
+                <div
+                  class="course-card-icon"
+                  style="background: var(--color-primary)"
+                >
+                  <i class="ph ph-brain"></i>
+                </div>
+                <div class="course-card-body">
+                  <h3>Introdução ao Machine Learning</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (40 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="course-card"
+                data-category="programming"
+                data-level="intermediate"
+                data-rating="5"
+              >
+                <div class="course-card-icon" style="background: #f59e0b">
+                  <i class="ph ph-code"></i>
+                </div>
+                <div class="course-card-body">
+                  <h3>Python para Análise de Dados</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (40 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="course-card"
+                data-category="programming"
+                data-level="advanced"
+                data-rating="5"
+              >
+                <div class="course-card-icon" style="background: #10b981">
+                  <i class="ph ph-leaf"></i>
+                </div>
+                <div class="course-card-body">
+                  <h3>Node.js com Express e MongoDB</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (50 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="course-card"
+                data-category="business"
+                data-level="intermediate"
+                data-rating="5"
+              >
+                <div class="course-card-icon" style="background: #8b5cf6">
+                  <i class="ph ph-cursor"></i>
+                </div>
+                <div class="course-card-body">
+                  <h3>Gestão de Projetos Ágeis com S...</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (4.0 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="course-card"
+                data-category="design"
+                data-level="beginner"
+                data-rating="5"
+              >
+                <div
+                  class="course-card-icon"
+                  style="background: var(--color-primary)"
+                >
+                  <i class="ph ph-pencil"></i>
+                </div>
+                <div class="course-card-body">
+                  <h3>Fundamentos de UI/UX para Ap...</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (50 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="course-card"
+                data-category="programming"
+                data-level="intermediate"
+                data-rating="5"
+              >
+                <div class="course-card-icon" style="background: #f59e0b">
+                  <span>JS</span>
+                </div>
+                <div class="course-card-body">
+                  <h3>JavaScript Moderna: ES6+ e Bo...</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (50 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="course-card"
+                data-category="design"
+                data-level="intermediate"
+                data-rating="5"
+              >
+                <div class="course-card-icon" style="background: #8b5cf6">
+                  <i class="ph ph-figma-logo"></i>
+                </div>
+                <div class="course-card-body">
+                  <h3>Figma: Design de Interfaces do...</h3>
+                  <div class="course-rating">
+                    <div class="stars">
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                      <i class="ph ph-star-fill"></i>
+                    </div>
+                    <span>5.0 (50 avaliações)</span>
+                  </div>
+                  <a href="course-detail.html" class="btn btn-secondary btn-sm">
+                    Ver mais
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/catalog.js"></script>
+  </body>
+</html>

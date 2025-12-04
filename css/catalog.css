@@ -1,0 +1,538 @@
+/* ========== CATALOG PAGE STYLES ========== */
+body.catalog-page {
+  background-color: var(--bg-light) !important;
+  background-image: none !important;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+body.catalog-page::before,
+body.catalog-page::after {
+  display: none !important;
+  content: none !important;
+  background-image: none !important;
+}
+
+body.catalog-page {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+body.catalog-page > *:not(.catalog-header) {
+  position: relative;
+  z-index: auto;
+}
+
+body.catalog-page .catalog-main {
+  background-color: var(--bg-light) !important;
+  background-image: none !important;
+  z-index: 1;
+  position: relative;
+}
+
+body.catalog-page .catalog-content {
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+}
+
+body.catalog-page .courses-grid {
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+}
+
+/* Garantir que elementos principais apareçam acima */
+body.catalog-page .catalog-sidebar,
+body.catalog-page .catalog-content,
+body.catalog-page .course-card,
+body.catalog-page .featured-course {
+  position: relative;
+  z-index: 10;
+}
+
+body.catalog-page main {
+  position: relative;
+  z-index: 5;
+  background-color: var(--bg-light);
+}
+
+.catalog-header {
+  background-color: var(--bg-dark);
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow-md);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.catalog-header .header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalog-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.catalog-header .logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.catalog-header .header-nav {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.catalog-header .nav-link {
+  color: var(--text-white);
+  font-weight: 500;
+  transition: color var(--transition-base);
+}
+
+.catalog-header .nav-link:hover,
+.catalog-header .nav-link.active {
+  color: var(--color-primary-light);
+}
+
+.catalog-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* Search Bar */
+.catalog-header .search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+  padding: 8px 16px;
+  min-width: 300px;
+  transition: all var(--transition-base);
+}
+
+.catalog-header .search-bar:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.catalog-header .search-bar i {
+  color: var(--text-white);
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.catalog-header .search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-white);
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.catalog-header .search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.catalog-header .search-bar input:focus {
+  outline: none;
+}
+
+/* Icon Button */
+.catalog-header .icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: 1.3rem;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.catalog-header .icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* User Menu */
+.catalog-header .user-menu {
+  position: relative;
+}
+
+.catalog-header .user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+}
+
+.catalog-header .user-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.catalog-header .user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.catalog-header .user-menu-btn i {
+  color: var(--text-white);
+  font-size: 0.9rem;
+}
+
+.catalog-header .user-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  padding: var(--spacing-sm) 0;
+  z-index: 1000;
+}
+
+.catalog-header .user-menu:hover .user-dropdown {
+  display: block;
+}
+
+.catalog-header .user-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  font-size: 0.95rem;
+}
+
+.catalog-header .user-dropdown a:hover {
+  background-color: var(--bg-gray);
+  color: var(--color-primary);
+}
+
+.catalog-header .user-dropdown a i {
+  font-size: 1.1rem;
+  width: 20px;
+}
+
+.catalog-main {
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--bg-light);
+  min-height: calc(100vh - 70px);
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 10;
+  margin-top: 70px;
+  background-image: none !important;
+}
+
+.catalog-main::before,
+.catalog-main::after {
+  display: none !important;
+  content: none !important;
+}
+
+.catalog-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--spacing-2xl);
+  width: 100%;
+  align-items: start;
+  position: relative;
+  z-index: 10;
+}
+
+/* ========== SIDEBAR DE FILTROS ========== */
+.catalog-sidebar {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filters-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.clear-filters-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color var(--transition-base);
+}
+
+.clear-filters-btn:hover {
+  color: var(--color-primary-dark);
+}
+
+.filter-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.filter-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  padding: var(--spacing-xs) 0;
+}
+
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+/* ========== CONTEÚDO PRINCIPAL ========== */
+.catalog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  width: 100%;
+  min-width: 0;
+  visibility: visible;
+  opacity: 1;
+}
+
+.featured-course {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-white);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  background-image: none !important;
+}
+
+.featured-course-content {
+  flex: 1;
+  z-index: 1;
+}
+
+.featured-course-content h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-white);
+}
+
+.featured-course-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+}
+
+.featured-course-icon {
+  font-size: 8rem;
+  opacity: 0.2;
+  position: absolute;
+  right: var(--spacing-xl);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.course-card {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  position: relative;
+  z-index: 10;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.course-card-icon {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: 3rem;
+}
+
+.course-card-icon span {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.course-card-body {
+  padding: var(--spacing-lg);
+}
+
+.course-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  min-height: 3rem;
+}
+
+.course-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.course-rating .stars {
+  display: flex;
+  gap: 2px;
+}
+
+.course-rating .stars i {
+  color: #fbbf24;
+  font-size: 0.9rem;
+}
+
+.course-rating span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 992px) {
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-sidebar {
+    position: static;
+    order: 2;
+  }
+
+  .catalog-content {
+    order: 1;
+  }
+
+  .featured-course {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featured-course-icon {
+    position: static;
+    transform: none;
+    margin-top: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-course-content h2 {
+    font-size: 1.5rem;
+  }
+}
