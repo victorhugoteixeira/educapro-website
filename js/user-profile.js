@@ -102,8 +102,39 @@ function updateUserProfile() {
   });
 }
 
+// Função para fazer logout
+function logout() {
+  console.log("Fazendo logout...");
+  localStorage.removeItem("user");
+  localStorage.removeItem("isLoggedIn");
+  console.log("Dados removidos do localStorage");
+  alert("Você foi desconectado com sucesso!");
+  window.location.href = "index.html";
+}
+
 // Inicializar quando o DOM estiver pronto
 document.addEventListener("DOMContentLoaded", function() {
   updateUserProfile();
+  
+  // Adicionar event listeners aos links de "Sair"
+  // Procurar por links que tenham o ícone ph-sign-out ou texto "Sair"
+  const logoutLinks = document.querySelectorAll('a[href="index.html"]');
+  logoutLinks.forEach(link => {
+    const icon = link.querySelector('i.ph-sign-out');
+    const text = link.textContent.trim().toLowerCase();
+    
+    // Verificar se é realmente o link de logout (tem ícone de sair ou texto "sair")
+    if (icon || text.includes('sair')) {
+      // Evitar adicionar listener múltiplas vezes
+      if (!link.hasAttribute('data-logout-listener')) {
+        link.setAttribute('data-logout-listener', 'true');
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          logout();
+        });
+        console.log("Listener de logout adicionado ao link:", link);
+      }
+    }
+  });
 });
 

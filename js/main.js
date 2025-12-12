@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const deleteAccountBtn = document.getElementById("delete-account-btn");
 
   if (deleteAccountBtn) {
-    deleteAccountBtn.addEventListener("click", function () {
+    deleteAccountBtn.addEventListener("click", async function () {
       const confirmMessage =
         "Tem certeza que deseja excluir sua conta permanentemente?\n\n" +
         "Esta ação não pode ser desfeita e você perderá:\n" +
@@ -243,14 +243,48 @@ document.addEventListener("DOMContentLoaded", function () {
       const userConfirmation = prompt(confirmMessage);
 
       if (userConfirmation === "CONFIRMAR") {
-        // Aqui você faria a requisição ao servidor
-        alert(
-          "Sua conta será excluída em até 30 dias. Você receberá um e-mail de confirmação."
-        );
-        // Redirecionar para a página inicial após um tempo
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 2000);
+        // Obter ID do usuário logado
+        const user = JSON.parse(localStorage.getItem("user"));
+        
+        if (!user || !user.id) {
+          alert("Erro: Usuário não encontrado. Faça login novamente.");
+          return;
+        }
+
+        // Desabilitar botão durante a requisição
+        deleteAccountBtn.disabled = true;
+        deleteAccountBtn.textContent = "Excluindo conta...";
+
+        try {
+          const response = await fetch(`http://localhost:8080/api/users/${user.id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            // Limpar dados do localStorage
+            localStorage.removeItem("user");
+            localStorage.removeItem("isLoggedIn");
+            
+            alert("Sua conta foi excluída com sucesso!");
+            
+            // Redirecionar para a página inicial
+            window.location.href = "index.html";
+          } else {
+            alert(result.message || "Erro ao excluir conta. Tente novamente.");
+            deleteAccountBtn.disabled = false;
+            deleteAccountBtn.textContent = "Excluir minha conta permanentemente";
+          }
+        } catch (error) {
+          console.error("Erro ao excluir conta:", error);
+          alert("Erro ao excluir conta. Verifique sua conexão e tente novamente.");
+          deleteAccountBtn.disabled = false;
+          deleteAccountBtn.textContent = "Excluir minha conta permanentemente";
+        }
       } else {
         alert("Exclusão de conta cancelada.");
       }
