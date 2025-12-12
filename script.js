@@ -120,8 +120,48 @@ registerInstructorLink.addEventListener("click", (e) => {
   alert("Funcionalidade de cadastro como instrutor em desenvolvimento!");
 });
 
+// ========== CONFIGURAÇÃO DA API ==========
+const API_BASE_URL = "http://localhost:8080/api";
+
+// ========== FUNÇÕES DE REQUISIÇÃO ==========
+async function fazerLogin(email, password) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Erro ao fazer login:", error);
+    throw new Error("Erro de conexão com o servidor. Tente novamente.");
+  }
+}
+
+async function fazerCadastro(userData) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/users/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Erro ao fazer cadastro:", error);
+    throw new Error("Erro de conexão com o servidor. Tente novamente.");
+  }
+}
+
 // ========== VALIDAÇÃO DE FORMULÁRIOS ==========
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const email = document.getElementById("login-email").value.trim();
@@ -139,18 +179,40 @@ loginForm.addEventListener("submit", (e) => {
     return;
   }
 
-  // Se passou na validação, pode enviar (aqui você faria a requisição ao servidor)
-  alert("Login realizado com sucesso! Redirecionando para o dashboard...");
-  closeModal(loginModal);
-  loginForm.reset();
+  // Desabilitar botão durante a requisição
+  const submitBtn = loginForm.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Entrando...";
 
-  // Redirecionar para o dashboard após 1 segundo
-  setTimeout(() => {
-    window.location.href = "dashboard.html";
-  }, 1000);
+  try {
+    const result = await fazerLogin(email, password);
+
+    if (result.success) {
+      // Salvar dados do usuário no localStorage
+      localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("isLoggedIn", "true");
+
+      alert("Login realizado com sucesso! Redirecionando para o dashboard...");
+      closeModal(loginModal);
+      loginForm.reset();
+
+      // Redirecionar para o dashboard após 1 segundo
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 1000);
+    } else {
+      alert(result.message || "Erro ao fazer login. Tente novamente.");
+    }
+  } catch (error) {
+    alert(error.message || "Erro ao fazer login. Verifique sua conexão e tente novamente.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 });
 
-registerForm.addEventListener("submit", (e) => {
+registerForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const name = document.getElementById("register-name").value.trim();
@@ -200,12 +262,54 @@ registerForm.addEventListener("submit", (e) => {
     return;
   }
 
-  // Se passou na validação, pode enviar (aqui você faria a requisição ao servidor)
-  alert(
-    "Cadastro realizado com sucesso! (Funcionalidade de cadastro em desenvolvimento)"
-  );
-  closeModal(registerModal);
-  registerForm.reset();
+  // Converter data de dd/mm/yyyy para yyyy-MM-dd (formato ISO)
+  let birthDateFormatted = null;
+  if (birthdate) {
+    const [day, month, year] = birthdate.split("/");
+    if (day && month && year) {
+      birthDateFormatted = `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    }
+  }
+
+  // Preparar dados para envio
+  const userData = {
+    name,
+    phone,
+    educationLevel: education,
+    email,
+    birthDate: birthDateFormatted,
+    address,
+    objective,
+    password,
+  };
+
+  // Desabilitar botão durante a requisição
+  const submitBtn = registerForm.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Cadastrando...";
+
+  try {
+    const result = await fazerCadastro(userData);
+
+    if (result.success) {
+      alert("Cadastro realizado com sucesso! Você pode fazer login agora.");
+      closeModal(registerModal);
+      registerForm.reset();
+
+      // Abrir modal de login após 1 segundo
+      setTimeout(() => {
+        openModal(loginModal);
+      }, 1000);
+    } else {
+      alert(result.message || "Erro ao realizar cadastro. Tente novamente.");
+    }
+  } catch (error) {
+    alert(error.message || "Erro ao realizar cadastro. Verifique sua conexão e tente novamente.");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 });
 
 recoveryForm.addEventListener("submit", (e) => {
