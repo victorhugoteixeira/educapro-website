@@ -257,50 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ========== SALVAR PERFIL ==========
-  const profileForm = document.querySelector(".profile-form");
-
-  if (profileForm) {
-    profileForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById("profile-name").value.trim();
-      const title = document.getElementById("profile-title").value.trim();
-      const description = document
-        .getElementById("profile-description")
-        .value.trim();
-      const linkedin = document.getElementById("profile-linkedin").value.trim();
-      const github = document.getElementById("profile-github").value.trim();
-      const website = document.getElementById("profile-website").value.trim();
-
-      if (!name) {
-        alert("Por favor, preencha pelo menos o nome completo!");
-        return;
-      }
-
-      // Validação de URLs
-      const urlRegex =
-        /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-
-      if (linkedin && !urlRegex.test(linkedin)) {
-        alert("Por favor, insira uma URL válida para o LinkedIn!");
-        return;
-      }
-
-      if (github && !urlRegex.test(github)) {
-        alert("Por favor, insira uma URL válida para o GitHub!");
-        return;
-      }
-
-      if (website && !urlRegex.test(website)) {
-        alert("Por favor, insira uma URL válida para o website!");
-        return;
-      }
-
-      // Aqui você faria a requisição ao servidor
-      alert("Perfil atualizado com sucesso!");
-    });
-  }
+  // O salvamento do perfil agora é gerenciado por settings-profile.js
 
   // ========== ANIMAÇÃO DOS GRÁFICOS CIRCULARES (DASHBOARD) ==========
   const progressCircles = document.querySelectorAll(

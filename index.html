@@ -408,6 +408,19 @@
               <option value="negocio">Empreendedorismo</option>
             </select>
           </div>
+          <div class="form-group">
+            <label for="register-photo">Foto de perfil (opcional)</label>
+            <input
+              type="file"
+              id="register-photo"
+              accept="image/*"
+              style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 100%; cursor: pointer;"
+            />
+            <small style="display: block; margin-top: 4px; color: #666; font-size: 0.85rem;">Formatos aceitos: JPG, PNG, GIF (máx. 2MB)</small>
+            <div id="photo-preview" style="margin-top: 10px; display: none;">
+              <img id="photo-preview-img" src="" alt="Preview" style="max-width: 150px; max-height: 150px; border-radius: 8px; border: 2px solid #ddd;" />
+            </div>
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="register-password">Senha</label>

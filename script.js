@@ -190,6 +190,8 @@ loginForm.addEventListener("submit", async (e) => {
 
     if (result.success) {
       // Salvar dados do usuário no localStorage
+      console.log("Dados do usuário recebidos no login:", result.user);
+      console.log("photoUrl no login:", result.user.photoUrl ? (result.user.photoUrl.substring(0, 50) + "...") : "null/vazio");
       localStorage.setItem("user", JSON.stringify(result.user));
       localStorage.setItem("isLoggedIn", "true");
 
@@ -271,44 +273,75 @@ registerForm.addEventListener("submit", async (e) => {
     }
   }
 
-  // Preparar dados para envio
-  const userData = {
-    name,
-    phone,
-    educationLevel: education,
-    email,
-    birthDate: birthDateFormatted,
-    address,
-    objective,
-    password,
-  };
+  // Processar foto se houver
+  const photoInput = document.getElementById("register-photo");
+  let photoBase64 = null;
 
-  // Desabilitar botão durante a requisição
-  const submitBtn = registerForm.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Cadastrando...";
-
-  try {
-    const result = await fazerCadastro(userData);
-
-    if (result.success) {
-      alert("Cadastro realizado com sucesso! Você pode fazer login agora.");
-      closeModal(registerModal);
-      registerForm.reset();
-
-      // Abrir modal de login após 1 segundo
-      setTimeout(() => {
-        openModal(loginModal);
-      }, 1000);
-    } else {
-      alert(result.message || "Erro ao realizar cadastro. Tente novamente.");
+  if (photoInput && photoInput.files && photoInput.files[0]) {
+    const file = photoInput.files[0];
+    // Validar tamanho (máximo 2MB)
+    if (file.size > 2 * 1024 * 1024) {
+      alert("A foto deve ter no máximo 2MB!");
+      return;
     }
-  } catch (error) {
-    alert(error.message || "Erro ao realizar cadastro. Verifique sua conexão e tente novamente.");
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
+    // Converter para base64
+    const reader = new FileReader();
+    reader.onload = async function(e) {
+      photoBase64 = e.target.result;
+      await submitRegistration();
+    };
+    reader.readAsDataURL(file);
+    return; // Retornar aqui, o submit será feito no callback
+  }
+
+  await submitRegistration();
+
+  async function submitRegistration() {
+    // Preparar dados para envio
+    const userData = {
+      name,
+      phone,
+      educationLevel: education,
+      email,
+      birthDate: birthDateFormatted,
+      address,
+      objective,
+      password,
+      photoUrl: photoBase64 || null,
+    };
+
+    // Desabilitar botão durante a requisição
+    const submitBtn = registerForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Cadastrando...";
+
+    try {
+      const result = await fazerCadastro(userData);
+
+      if (result.success) {
+        alert("Cadastro realizado com sucesso! Você pode fazer login agora.");
+        closeModal(registerModal);
+        registerForm.reset();
+        // Limpar preview da foto
+        const photoPreview = document.getElementById("photo-preview");
+        const photoPreviewImg = document.getElementById("photo-preview-img");
+        if (photoPreview) photoPreview.style.display = "none";
+        if (photoPreviewImg) photoPreviewImg.src = "";
+
+        // Abrir modal de login após 1 segundo
+        setTimeout(() => {
+          openModal(loginModal);
+        }, 1000);
+      } else {
+        alert(result.message || "Erro ao realizar cadastro. Tente novamente.");
+      }
+    } catch (error) {
+      alert(error.message || "Erro ao realizar cadastro. Verifique sua conexão e tente novamente.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
   }
 });
 
@@ -375,5 +408,25 @@ if (birthdateInput) {
       value = value.substring(0, 5) + "/" + value.substring(5, 9);
     }
     e.target.value = value;
+  });
+}
+
+// ========== PREVIEW DA FOTO ==========
+const photoInput = document.getElementById("register-photo");
+if (photoInput) {
+  photoInput.addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById("photo-preview");
+        const previewImg = document.getElementById("photo-preview-img");
+        if (preview && previewImg) {
+          previewImg.src = e.target.result;
+          preview.style.display = "block";
+        }
+      };
+      reader.readAsDataURL(file);
+    }
   });
 }

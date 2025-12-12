@@ -132,6 +132,7 @@
                         src="img/Mulher_pc.png"
                         alt="Foto de perfil"
                         class="profile-photo"
+                        id="profile-photo-img"
                       />
                       <button
                         type="button"
@@ -140,7 +141,14 @@
                       >
                         <i class="ph ph-camera"></i>
                       </button>
+                      <input
+                        type="file"
+                        id="profile-photo-input"
+                        accept="image/*"
+                        style="display: none;"
+                      />
                     </div>
+                    <small style="display: block; margin-top: 4px; color: #666;">Clique no ícone da câmera para alterar a foto</small>
                   </div>
 
                   <div class="form-group">
@@ -149,29 +157,74 @@
                       type="text"
                       id="profile-name"
                       placeholder="Digite seu nome completo"
-                      value="Keila Silva"
+                      value=""
                     />
                   </div>
 
                   <div class="form-group">
-                    <label for="profile-title">Título Profissional</label>
+                    <label for="profile-phone">Telefone</label>
+                    <input
+                      type="tel"
+                      id="profile-phone"
+                      placeholder="Digite seu telefone"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-email">E-mail</label>
+                    <input
+                      type="email"
+                      id="profile-email"
+                      placeholder="Digite seu e-mail"
+                      value=""
+                      readonly
+                      style="background-color: #f5f5f5;"
+                    />
+                    <small style="display: block; margin-top: 4px; color: #666;">E-mail não pode ser alterado</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-education">Nível de Educação</label>
+                    <select id="profile-education">
+                      <option value="">Selecione</option>
+                      <option value="fundamental">Ensino Fundamental</option>
+                      <option value="medio">Ensino Médio</option>
+                      <option value="superior">Ensino Superior</option>
+                      <option value="pos">Pós-graduação</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-birthdate">Data de Nascimento</label>
                     <input
                       type="text"
-                      id="profile-title"
-                      placeholder="Ex: Desenvolvedora Full Stack"
-                      value="Desenvolvedora Full Stack"
+                      id="profile-birthdate"
+                      placeholder="dd/mm/aaaa"
+                      maxlength="10"
+                      value=""
                     />
                   </div>
 
                   <div class="form-group">
-                    <label for="profile-description">Descrição</label>
-                    <textarea
-                      id="profile-description"
-                      rows="4"
-                      placeholder="Fale um pouco sobre você..."
-                    >
-Apaixonada por tecnologia e sempre em busca de novos conhecimentos.</textarea
-                    >
+                    <label for="profile-address">Endereço</label>
+                    <input
+                      type="text"
+                      id="profile-address"
+                      placeholder="Digite seu endereço"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-objective">Objetivo de Aprendizagem</label>
+                    <select id="profile-objective">
+                      <option value="">Selecione</option>
+                      <option value="carreira">Desenvolvimento de Carreira</option>
+                      <option value="pessoal">Crescimento Pessoal</option>
+                      <option value="academico">Aperfeiçoamento Acadêmico</option>
+                      <option value="negocio">Empreendedorismo</option>
+                    </select>
                   </div>
 
                   <div class="form-divider"></div>
@@ -591,6 +644,8 @@ Apaixonada por tecnologia e sempre em busca de novos conhecimentos.</textarea
       </div>
     </div>
 
+    <script src="js/user-profile.js"></script>
+    <script src="js/settings-profile.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
