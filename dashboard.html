@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="dashboard-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="dashboard.html" class="nav-link active">
+              <i class="ph ph-chart-line-up"></i>
+              Progresso
+            </a>
+            <a href="library.html" class="nav-link">
+              <i class="ph ph-books"></i>
+              Biblioteca
+            </a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <a
+            href="notifications.html"
+            class="icon-btn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+          </a>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="settings.html">
+                <i class="ph ph-gear"></i>
+                Configurações
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="dashboard-main">
+      <div class="dashboard-container">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+          <div class="welcome-content">
+            <h1 class="welcome-title">Bem-vindo!</h1>
+            <div class="welcome-avatar">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="avatar-large" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Dashboard Grid -->
+        <section class="dashboard-grid">
+          <!-- Card de Progresso e Cursos Ativos -->
+          <div class="card progress-card">
+            <div class="progress-header">
+              <h3>PROGRESSO</h3>
+              <div class="progress-circle-wrapper">
+                <div class="progress-circle" data-progress="72">
+                  <svg class="progress-ring" width="120" height="120">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e2e8f0"
+                      stroke-width="8"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="url(#gradient1)"
+                      stroke-width="8"
+                      fill="transparent"
+                      r="52"
+                      cx="60"
+                      cy="60"
+                      stroke-dasharray="326.73"
+                      stroke-dashoffset="91.48"
+                      stroke-linecap="round"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="gradient1"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          style="stop-color: #00c2ff; stop-opacity: 1"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #2563eb; stop-opacity: 1"
+                        />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="progress-text">
+                    <span class="progress-percentage">72%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-secondary">
+              <div class="secondary-progress">
+                <div class="secondary-progress-circle" data-progress="85">
+                  <svg class="progress-ring" width="80" height="80">
+                    <circle
+                      class="progress-ring-circle-bg"
+                      stroke="#e2e8f0"
+                      stroke-width="6"
+                      fill="transparent"
+                      r="34"
+                      cx="40"
+                      cy="40"
+                    />
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#00c2ff"
+                      stroke-width="6"
+                      fill="transparent"
+                      r="34"
+                      cx="40"
+                      cy="40"
+                      stroke-dasharray="213.63"
+                      stroke-dashoffset="32.04"
+                      stroke-dasharray="213.63"
+                      stroke-dashoffset="32.04"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <div class="progress-text-small">
+                    <span>85%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="active-courses">
+                <span class="courses-number">3</span>
+                <span class="courses-label">CURSOS ATIVOS</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-certificates">
+              <i class="ph ph-certificate"></i>
+              CERTIFICADOS
+            </button>
+          </div>
+
+          <!-- Card Próxima Aula -->
+          <div class="card next-class-card">
+            <h3 class="card-title">PRÓXIMA AULA</h3>
+            <h4 class="class-title">INTRODUÇÃO À PROGRAMAÇÃO</h4>
+            <button class="btn btn-primary btn-continue">
+              CONTINUAR AGORA
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card Frequência -->
+          <div class="card frequency-card">
+            <h3 class="card-title">FREQUÊNCIA</h3>
+            <div class="frequency-circle-wrapper">
+              <div class="frequency-circle" data-progress="85">
+                <svg class="progress-ring" width="140" height="140">
+                  <circle
+                    class="progress-ring-circle-bg"
+                    stroke="#e2e8f0"
+                    stroke-width="10"
+                    fill="transparent"
+                    r="60"
+                    cx="70"
+                    cy="70"
+                  />
+                  <circle
+                    class="progress-ring-circle"
+                    stroke="url(#gradient2)"
+                    stroke-width="10"
+                    fill="transparent"
+                    r="60"
+                    cx="70"
+                    cy="70"
+                    stroke-dasharray="376.99"
+                    stroke-dashoffset="56.55"
+                    stroke-linecap="round"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="gradient2"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        style="stop-color: #00c2ff; stop-opacity: 1"
+                      />
+                      <stop
+                        offset="100%"
+                        style="stop-color: #2563eb; stop-opacity: 1"
+                      />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="progress-text-large">
+                  <span class="progress-percentage">85%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Cursando -->
+          <div class="card courses-card">
+            <h3 class="card-title">CURSANDO</h3>
+            <ul class="courses-list">
+              <li class="course-item">
+                <i class="ph ph-play-circle"></i>
+                <span>INTRODUÇÃO À PROGRAMAÇÃO</span>
+              </li>
+              <li class="course-item">
+                <i class="ph ph-play-circle"></i>
+                <span>MARKETING DIGITAL</span>
+              </li>
+              <li class="course-item">
+                <i class="ph ph-play-circle"></i>
+                <span>DESIGN GRÁFICO</span>
+              </li>
+              <li class="course-item">
+                <i class="ph ph-play-circle"></i>
+                <span>GESTÃO DE PROJETOS</span>
+              </li>
+              <li class="course-item">
+                <i class="ph ph-play-circle"></i>
+                <span>ANÁLISE DE DADOS</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/user-profile.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

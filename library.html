@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/library.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="library-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="dashboard.html" class="nav-link">
+              <i class="ph ph-chart-line-up"></i>
+              Progresso
+            </a>
+            <a href="library.html" class="nav-link active">
+              <i class="ph ph-books"></i>
+              Biblioteca
+            </a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <a
+            href="notifications.html"
+            class="icon-btn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+          </a>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="settings.html">
+                <i class="ph ph-gear"></i>
+                Configurações
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="library-main">
+      <div class="library-container">
+        <!-- Page Header -->
+        <div class="library-header-section">
+          <h1 class="library-title">Sua Biblioteca</h1>
+          <p class="library-subtitle">
+            Organize seus estudos e revisite seu histórico de aulas.
+          </p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="library-tabs">
+          <button class="tab-btn active" data-tab="playlists">Playlists</button>
+          <button class="tab-btn" data-tab="history">Histórico</button>
+          <button class="tab-btn" data-tab="courses">Meus cursos</button>
+          <button class="tab-btn" data-tab="certificates">Certificados</button>
+          <button class="tab-btn" data-tab="evaluations">
+            Minhas avaliações
+          </button>
+        </nav>
+
+        <!-- ========== ABA PLAYLISTS ========== -->
+        <div class="tab-content active" id="playlists-tab">
+          <!-- Playlist Overview -->
+          <div class="playlist-overview" id="playlist-overview">
+            <div class="playlists-grid">
+              <!-- Create New Playlist Card -->
+              <div class="playlist-card create-playlist-card">
+                <div class="create-playlist-content">
+                  <i class="ph ph-plus-circle"></i>
+                  <span>Criar nova playlist</span>
+                </div>
+              </div>
+
+              <!-- Existing Playlists -->
+              <a
+                href="playlist-edit.html"
+                class="playlist-card"
+                data-playlist-id="1"
+                style="text-decoration: none; color: inherit; display: block"
+              >
+                <div
+                  class="playlist-card-header"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #64748b 0%,
+                      #475569 100%
+                    );
+                  "
+                >
+                  <div class="playlist-badge">Curso 2</div>
+                </div>
+                <div class="playlist-card-body">
+                  <h3>Frontend Essencial</h3>
+                  <p>5 Cursos</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="playlist-edit.html"
+                class="playlist-card"
+                data-playlist-id="2"
+                style="text-decoration: none; color: inherit; display: block"
+              >
+                <div
+                  class="playlist-card-header"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #10b981 0%,
+                      #059669 100%
+                    );
+                  "
+                >
+                  <div class="playlist-badge">Design</div>
+                </div>
+                <div class="playlist-card-body">
+                  <h3>Ferramentas de Design</h3>
+                  <p>3 Cursos</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Playlist Detail/Edit View -->
+          <div
+            class="playlist-detail"
+            id="playlist-detail"
+            style="display: none"
+          >
+            <a href="#" class="back-link" id="back-to-playlists">
+              <i class="ph ph-arrow-left"></i>
+              Voltar para a Biblioteca
+            </a>
+
+            <div class="playlist-detail-header">
+              <h2 id="playlist-detail-title">Frontend Essencial</h2>
+              <button class="edit-name-btn" id="edit-playlist-name">
+                <i class="ph ph-pencil"></i>
+                Editar Nome
+              </button>
+            </div>
+
+            <p class="playlist-detail-description">
+              Uma coleção dos melhores cursos para dominar o desenvolvimento
+              frontend moderno.
+            </p>
+
+            <div class="playlist-courses-section">
+              <h3>
+                Cursos na Playlist (<span id="playlist-course-count">2</span>)
+              </h3>
+
+              <div class="playlist-courses-list" id="playlist-courses-list">
+                <div class="playlist-course-item">
+                  <div class="course-icon" style="background: #10b981">
+                    <span>J</span>
+                  </div>
+                  <div class="course-info">
+                    <h4>JavaScript Avançado</h4>
+                    <p>Por Carlos Mendes</p>
+                    <span class="course-meta">Visto hoje</span>
+                  </div>
+                  <button class="remove-course-btn" data-course="1">
+                    <i class="ph ph-x"></i>
+                  </button>
+                </div>
+
+                <div class="playlist-course-item">
+                  <div
+                    class="course-icon"
+                    style="background: var(--color-primary)"
+                  >
+                    <span>R</span>
+                  </div>
+                  <div class="course-info">
+                    <h4>Dominando React</h4>
+                    <p>Por Ana Paula</p>
+                    <span class="course-meta">Visto ontem</span>
+                  </div>
+                  <button class="remove-course-btn" data-course="2">
+                    <i class="ph ph-x"></i>
+                  </button>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-primary btn-add-course"
+                id="add-course-to-playlist"
+              >
+                <i class="ph ph-plus"></i>
+                Adicionar curso a Playlist
+              </button>
+            </div>
+
+            <div class="playlist-actions">
+              <button class="btn-danger-text" id="delete-playlist-btn">
+                <i class="ph ph-trash"></i>
+                Excluir Playlist
+              </button>
+              <button class="btn btn-primary" id="save-playlist-btn">
+                Salvar Alterações
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== ABA HISTÓRICO ========== -->
+        <div class="tab-content" id="history-tab">
+          <!-- Recent Classes Section -->
+          <section class="history-section">
+            <h2 class="section-title">Aulas Recentes</h2>
+
+            <div class="recent-classes-list">
+              <div class="recent-class-card">
+                <div class="class-icon" style="background: #10b981">
+                  <span>P</span>
+                </div>
+                <div class="class-info">
+                  <h4>Aula 05: Estado e Reatividade</h4>
+                  <p>do curso 'Introdução à Programação'</p>
+                  <span class="class-meta">Visto hoje</span>
+                </div>
+                <button class="btn btn-primary">Continuar</button>
+              </div>
+
+              <div class="recent-class-card">
+                <div
+                  class="class-icon"
+                  style="background: var(--color-primary)"
+                >
+                  <span>M</span>
+                </div>
+                <div class="class-info">
+                  <h4>Aula 02: Persona e Público-Alvo</h4>
+                  <p>do curso 'Marketing Digital'</p>
+                  <span class="class-meta">Visto ontem</span>
+                </div>
+                <button class="btn btn-primary">Continuar</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Completed Courses Section -->
+          <section class="history-section">
+            <h2 class="section-title">Cursos Concluídos</h2>
+
+            <div class="completed-courses-list">
+              <div class="completed-course-card">
+                <div class="course-icon-large" style="background: #10b981">
+                  <i class="ph ph-check"></i>
+                </div>
+                <div class="course-info">
+                  <h4>Design Gráfico</h4>
+                  <p>Concluído em 10/10/2025</p>
+                </div>
+                <button class="btn btn-secondary">Ver certificado</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Notes Section -->
+          <section class="history-section">
+            <h2 class="section-title">Suas Anotações</h2>
+
+            <div class="notes-grid">
+              <div class="note-card">
+                <h4 class="note-title">Aula: Estado e Reatividade</h4>
+                <p class="note-content">
+                  Lembrar de pesquisar mais sobre a diferença entre 'let' e '$'.
+                  O conceito de reatividade declarativa parece ser o ponto chave
+                  do Svelte.
+                </p>
+              </div>
+
+              <div class="note-card">
+                <h4 class="note-title">Aula: Teoria das Cores</h4>
+                <p class="note-content">
+                  Anotação importante: Círculo cromático é a base. Cores
+                  análogas para harmonia, complementares para contraste. Testar
+                  a ferramenta da Adobe Color.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========== ABA MEUS CURSOS ========== -->
+        <div class="tab-content" id="courses-tab">
+          <div class="courses-grid">
+            <div class="course-card-library">
+              <div
+                class="course-card-header"
+                style="background: var(--color-primary)"
+              >
+                <h3>Intro a Prog</h3>
+              </div>
+              <div class="course-card-body">
+                <div class="course-header-row">
+                  <h4>Introdução à Programação</h4>
+                  <button class="course-menu-btn" data-course="1">
+                    <i class="ph ph-dots-three-vertical"></i>
+                  </button>
+                </div>
+                <p class="course-instructor">Por Carlos Mendes</p>
+                <div class="course-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                  </div>
+                  <span class="progress-text">75% concluído</span>
+                </div>
+                <button class="btn btn-primary btn-full">
+                  Continuar Curso
+                </button>
+              </div>
+            </div>
+
+            <div class="course-card-library">
+              <div class="course-card-header" style="background: #10b981">
+                <h3>Marketing</h3>
+              </div>
+              <div class="course-card-body">
+                <div class="course-header-row">
+                  <h4>Marketing Digital</h4>
+                  <button class="course-menu-btn" data-course="2">
+                    <i class="ph ph-dots-three-vertical"></i>
+                  </button>
+                </div>
+                <p class="course-instructor">Por Ana Paula</p>
+                <div class="course-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%"></div>
+                  </div>
+                  <span class="progress-text">20% concluído</span>
+                </div>
+                <button class="btn btn-primary btn-full">
+                  Continuar Curso
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Menu Popup -->
+          <div class="course-menu-popup" id="course-menu-popup">
+            <a href="#" class="menu-item">
+              <span>Adicionar à Playlist</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+            <a href="#" class="menu-item menu-item-danger">
+              <span>Remover dos meus cursos</span>
+              <i class="ph ph-x"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- ========== ABA CERTIFICADOS ========== -->
+        <div class="tab-content" id="certificates-tab">
+          <div class="certificates-grid">
+            <div class="certificate-card">
+              <div class="certificate-icon">
+                <i class="ph ph-medal"></i>
+              </div>
+              <div class="certificate-info">
+                <h3>Design Gráfico</h3>
+                <p>Concluído em: 10/10/2025</p>
+                <button class="btn btn-secondary">
+                  <i class="ph ph-download"></i>
+                  Baixar Certificado
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== ABA MINHAS AVALIAÇÕES ========== -->
+        <div class="tab-content" id="evaluations-tab">
+          <!-- Evaluation Filter -->
+          <div class="evaluation-filter">
+            <button class="filter-btn active" data-filter="pending">
+              Pendentes
+            </button>
+            <button class="filter-btn" data-filter="evaluated">
+              Avaliados
+            </button>
+          </div>
+
+          <!-- Completed Courses to Evaluate -->
+          <section class="evaluations-section">
+            <h2 class="section-title">Cursos Concluídos</h2>
+            <p class="section-subtitle">
+              Você já avaliou 1 de 3 cursos concluídos.
+            </p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 33%"></div>
+            </div>
+
+            <div class="courses-to-evaluate-grid" id="pending-evaluations">
+              <div class="course-evaluate-card" data-course-id="1">
+                <div
+                  class="course-icon-large"
+                  style="background: var(--color-primary)"
+                >
+                  <i class="ph ph-atom"></i>
+                </div>
+                <div class="course-info">
+                  <h4>React: Crie Interfaces Modernas...</h4>
+                  <p>Por Bruno Costa</p>
+                  <span class="course-meta">Concluído em 05 de Jul, 2025</span>
+                </div>
+                <button class="btn btn-primary btn-evaluate" data-course="1">
+                  <i class="ph ph-star"></i>
+                  Avaliar agora
+                </button>
+              </div>
+
+              <div class="course-evaluate-card" data-course-id="2">
+                <div class="course-icon-large" style="background: #f59e0b">
+                  <i class="ph ph-code"></i>
+                </div>
+                <div class="course-info">
+                  <h4>Python para Análise de Dados</h4>
+                  <p>Por Julia Santos</p>
+                  <span class="course-meta">Concluído em 28 de Jun, 2025</span>
+                </div>
+                <button class="btn btn-primary btn-evaluate" data-course="2">
+                  <i class="ph ph-star"></i>
+                  Avaliar agora
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Sent Evaluations -->
+          <section
+            class="evaluations-section"
+            id="evaluated-section"
+            style="display: none"
+          >
+            <h2 class="section-title">Minhas Avaliações Enviadas</h2>
+
+            <div class="evaluation-card">
+              <div class="evaluation-header">
+                <h4>Node.js com Express e MongoDB</h4>
+                <span class="evaluation-date">Avaliado em 16 de Jun, 2025</span>
+              </div>
+              <div class="evaluation-rating">
+                <div class="stars">
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                </div>
+                <span class="rating-text">(5.0)</span>
+              </div>
+              <p class="evaluation-text">
+                Curso fantástico! O instrutor explica muito bem e os projetos
+                práticos foram essenciais para o meu aprendizado. Recomendo
+                fortemente!
+              </p>
+              <div class="evaluation-actions">
+                <button class="icon-btn-small">
+                  <i class="ph ph-pencil"></i>
+                </button>
+                <button class="icon-btn-small">
+                  <i class="ph ph-trash"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Posted Comments -->
+          <section class="evaluations-section">
+            <h2 class="section-title">Meus Comentários Postados</h2>
+
+            <div class="comment-card">
+              <div class="comment-header">
+                <h4>Node.js com Express e MongoDB - Aula 01</h4>
+                <span class="comment-date">Avaliado em 22 de Nov, 2024</span>
+              </div>
+              <p class="comment-text">"Aula mó boa!"</p>
+              <div class="comment-actions">
+                <button class="icon-btn-small">
+                  <i class="ph ph-pencil"></i>
+                </button>
+                <button class="icon-btn-small">
+                  <i class="ph ph-trash"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== MODAL DE AVALIAÇÃO ========== -->
+    <div class="modal-overlay" id="evaluation-modal-overlay">
+      <div class="modal" id="evaluation-modal">
+        <div class="modal-content">
+          <button class="modal-close" id="close-evaluation-modal">
+            <i class="ph ph-x"></i>
+          </button>
+          <div class="modal-header">
+            <h2 class="modal-title">
+              <i class="ph ph-gear"></i>
+              Avaliar Curso
+            </h2>
+          </div>
+
+          <div class="evaluation-course-name" id="evaluation-course-name">
+            React: Crie Interfaces Modernas do Zero ao Avançado
+          </div>
+
+          <form class="evaluation-form" id="evaluation-form">
+            <div class="form-group">
+              <label>Sua nota geral</label>
+              <div class="stars-rating" id="stars-rating">
+                <button type="button" class="star-btn" data-rating="1">
+                  <i class="ph ph-star"></i>
+                </button>
+                <button type="button" class="star-btn" data-rating="2">
+                  <i class="ph ph-star"></i>
+                </button>
+                <button type="button" class="star-btn" data-rating="3">
+                  <i class="ph ph-star"></i>
+                </button>
+                <button type="button" class="star-btn" data-rating="4">
+                  <i class="ph ph-star"></i>
+                </button>
+                <button type="button" class="star-btn" data-rating="5">
+                  <i class="ph ph-star"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>O que você achou do curso?</label>
+              <textarea
+                id="evaluation-feedback"
+                rows="5"
+                placeholder="Descreva sua experiência..."
+                maxlength="200"
+              ></textarea>
+              <div class="char-count"><span id="char-count">0</span> / 200</div>
+            </div>
+
+            <div class="form-group">
+              <label>Destaques (opcional)</label>
+              <div class="highlights-checkboxes">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="highlights" value="content" />
+                  <span>Conteúdo atualizado</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="highlights" value="instructor" />
+                  <span>Didático do instrutor</span>
+                </label>
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    name="highlights"
+                    value="expectations"
+                  />
+                  <span>Cumpriu minhas expectativas</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="modal-actions">
+              <button type="submit" class="btn btn-primary">
+                Enviar Avaliação
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/user-profile.js"></script>
+    <script src="js/library.js"></script>
+  </body>
+</html>

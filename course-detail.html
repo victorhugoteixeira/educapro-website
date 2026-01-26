@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React: Crie Interfaces Modernas - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <link rel="stylesheet" href="css/course-detail.css" />
+  </head>
+  
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="course-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="catalog.html">Cursos</a>
+            <a href="#">Para Empresas</a>
+            <a href="#">Sobre Nós</a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar cursos..." />
+          </div>
+          <a
+            href="notifications.html"
+            class="icon-btn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+          </a>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="dashboard.html">
+                <i class="ph ph-chart-line-up"></i>
+                Dashboard
+              </a>
+              <a href="library.html">
+                <i class="ph ph-books"></i>
+                Biblioteca
+              </a>
+              <a href="settings.html">
+                <i class="ph ph-gear"></i>
+                Configurações
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== COURSE HERO ========== -->
+    <section class="course-hero">
+      <div class="course-hero-container">
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <i class="ph ph-caret-right"></i>
+          <a href="catalog.html">Cursos</a>
+          <i class="ph ph-caret-right"></i>
+          <span>React: Crie Interfaces Modernas</span>
+        </div>
+
+        <div class="course-hero-content">
+          <h1 class="course-title">
+            React: Crie Interfaces Modernas do Zero ao Avançado
+          </h1>
+          <p class="course-subtitle">
+            Aprenda a construir aplicações web reativas e de alta performance
+            com a biblioteca mais popular do mercado.
+          </p>
+
+          <div class="course-meta">
+            <div class="course-rating-large">
+              <div class="stars">
+                <i class="ph ph-star-fill"></i>
+                <i class="ph ph-star-fill"></i>
+                <i class="ph ph-star-fill"></i>
+                <i class="ph ph-star-fill"></i>
+                <i class="ph ph-star-fill"></i>
+              </div>
+              <span class="rating-value">5.0</span>
+              <span class="rating-count">(2153 avaliações)</span>
+            </div>
+            <span class="course-instructor-name">Por Bruno Costa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="course-detail-main">
+      <div class="course-detail-container">
+        <div class="course-detail-layout">
+          <!-- ========== COLUNA ESQUERDA ========== -->
+          <div class="course-detail-content">
+            <!-- Descrição do Curso -->
+            <section class="course-section">
+              <h2 class="section-title">Descrição do Curso</h2>
+              <p class="course-description">
+                Este curso completo é o seu guia para dominar o React, desde a
+                criação de componentes e a gestão de estado com hooks até a
+                construção de aplicações prontas para produção com Next.js.
+                Vamos explorar a fundo o Virtual DOM, o ecossistema do React e
+                as melhores práticas para escrever código limpo, escalável e
+                performático que o mercado de trabalho exige.
+              </p>
+            </section>
+
+            <!-- O que você vai aprender -->
+            <section class="course-section">
+              <h2 class="section-title">O que você vai aprender</h2>
+              <ul class="learning-list">
+                <li>
+                  <i class="ph ph-check-circle"></i>
+                  <span>Dominar a arquitetura baseada em componentes.</span>
+                </li>
+                <li>
+                  <i class="ph ph-check-circle"></i>
+                  <span>Criar aplicações web reativas e dinâmicas.</span>
+                </li>
+                <li>
+                  <i class="ph ph-check-circle"></i>
+                  <span
+                    >Gerir o estado da aplicação com Hooks [useState, useEffect,
+                    useContext].</span
+                  >
+                </li>
+                <li>
+                  <i class="ph ph-check-circle"></i>
+                  <span>Trabalhar com APIs e gerir dados assíncronos.</span>
+                </li>
+                <li>
+                  <i class="ph ph-check-circle"></i>
+                  <span>Criar rotas dinâmicas com React Router.</span>
+                </li>
+                <li>
+                  <i class="ph ph-check-circle"></i>
+                  <span
+                    >Construir projetos otimizados para SEO com Next.js.</span
+                  >
+                </li>
+              </ul>
+            </section>
+
+            <!-- Conteúdo do Curso -->
+            <section class="course-section">
+              <h2 class="section-title">Conteúdo do Curso</h2>
+              <div class="course-modules">
+                <div class="module-item">
+                  <button class="module-header" data-module="1">
+                    <span>Módulo 1: Fundamentos do React e JSX</span>
+                    <i class="ph ph-caret-down"></i>
+                  </button>
+                  <div class="module-content" id="module-1">
+                    <ul class="module-lessons">
+                      <li>Aula 1: Introdução ao React</li>
+                      <li>Aula 2: JSX e Componentes</li>
+                      <li>Aula 3: Props e Estado</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="module-item">
+                  <button class="module-header" data-module="2">
+                    <span>Módulo 2: Componentes, Props e Estado</span>
+                    <i class="ph ph-caret-down"></i>
+                  </button>
+                  <div class="module-content" id="module-2">
+                    <ul class="module-lessons">
+                      <li>Aula 1: Componentes Funcionais</li>
+                      <li>Aula 2: Props e Comunicação entre Componentes</li>
+                      <li>Aula 3: Estado Local e Lifting State</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="module-item">
+                  <button class="module-header" data-module="3">
+                    <span>Módulo 3: Hooks Avançados e Gestão de Estado</span>
+                    <i class="ph ph-caret-down"></i>
+                  </button>
+                  <div class="module-content" id="module-3">
+                    <ul class="module-lessons">
+                      <li>Aula 1: useState e useEffect</li>
+                      <li>Aula 2: useContext e useReducer</li>
+                      <li>Aula 3: Custom Hooks</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="module-item">
+                  <button class="module-header" data-module="4">
+                    <span>Módulo 4: Roteamento e Integração com APIs</span>
+                    <i class="ph ph-caret-down"></i>
+                  </button>
+                  <div class="module-content" id="module-4">
+                    <ul class="module-lessons">
+                      <li>Aula 1: React Router</li>
+                      <li>Aula 2: Fetch API e Axios</li>
+                      <li>Aula 3: Tratamento de Erros</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="module-item">
+                  <button class="module-header" data-module="5">
+                    <span
+                      >Módulo 5: Introdução ao Next.js e Renderização no
+                      Servidor (SSR)</span
+                    >
+                    <i class="ph ph-caret-down"></i>
+                  </button>
+                  <div class="module-content" id="module-5">
+                    <ul class="module-lessons">
+                      <li>Aula 1: Introdução ao Next.js</li>
+                      <li>Aula 2: Server-Side Rendering</li>
+                      <li>Aula 3: Static Site Generation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Instrutor -->
+            <section class="course-section">
+              <h2 class="section-title">Instrutor</h2>
+              <div class="instructor-card">
+                <div class="instructor-avatar">
+                  <span>BC</span>
+                </div>
+                <div class="instructor-info">
+                  <h3>Bruno Costa</h3>
+                  <p>
+                    Especialista em React e Arquitetura Front-end com mais de 8
+                    anos de experiência na criação de produtos digitais para
+                    startups e grandes empresas.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Avaliações dos Alunos -->
+            <section class="course-section">
+              <h2 class="section-title">Avaliações dos Alunos</h2>
+
+              <div class="reviews-list">
+                <div class="review-card">
+                  <div class="review-header">
+                    <div class="reviewer-avatar">
+                      <span>AS</span>
+                    </div>
+                    <div class="reviewer-info">
+                      <h4>Ana Silva</h4>
+                      <div class="stars">
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="review-text">
+                    Curso excelente! A didática do Bruno é fantástica e os
+                    projetos práticos ajudam a consolidar todo o conhecimento. O
+                    módulo de Next.js foi um grande diferencial.
+                  </p>
+                </div>
+
+                <div class="review-card">
+                  <div class="review-header">
+                    <div class="reviewer-avatar">
+                      <span>CM</span>
+                    </div>
+                    <div class="reviewer-info">
+                      <h4>Carlos Mendes</h4>
+                      <div class="stars">
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="review-text">
+                    Um dos melhores cursos de React que já fiz! A abordagem é
+                    muito prática e o instrutor explica conceitos complexos de
+                    uma forma muito clara. Recomendo a todos que querem levar as
+                    suas competências em React para o próximo nível!
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ========== COLUNA DIREITA (STICKY) ========== -->
+          <aside class="course-sidebar">
+            <div class="enrollment-card sticky-card">
+              <div class="enrollment-icon">
+                <i class="ph ph-atom"></i>
+              </div>
+              <button class="btn btn-primary btn-enroll">
+                Inscreva-se Agora
+              </button>
+              <ul class="enrollment-features">
+                <li>
+                  <i class="ph ph-check"></i>
+                  <span>Acesso vitalício</span>
+                </li>
+                <li>
+                  <i class="ph ph-check"></i>
+                  <span>Certificado de conclusão</span>
+                </li>
+                <li>
+                  <i class="ph ph-check"></i>
+                  <span>Suporte do instrutor</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="ad-card">
+              <div class="ad-content">
+                <i class="ph ph-plus"></i>
+                <span>Anúncio</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- ========== CURSOS RELACIONADOS ========== -->
+        <section class="related-courses">
+          <h2 class="section-title">
+            Alunos que viram este curso também se interessaram por
+          </h2>
+          <div class="related-courses-grid">
+            <a href="course-detail-ml.html" class="related-course-card">
+              <div
+                class="related-course-icon"
+                style="background: var(--color-primary)"
+              >
+                <i class="ph ph-brain"></i>
+              </div>
+              <h4>Introdução ao Machine Learning</h4>
+              <div class="course-rating">
+                <div class="stars">
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                </div>
+                <span>5.0 (120 avaliações)</span>
+              </div>
+            </a>
+
+            <div class="related-course-card">
+              <div class="related-course-icon" style="background: #8b5cf6">
+                <i class="ph ph-cursor"></i>
+              </div>
+              <h4>Gestão de Projetos Ágeis com S...</h4>
+              <div class="course-rating">
+                <div class="stars">
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                </div>
+                <span>5.0 (98 avaliações)</span>
+              </div>
+            </div>
+
+            <div class="related-course-card">
+              <div class="related-course-icon" style="background: #f59e0b">
+                <i class="ph ph-code"></i>
+              </div>
+              <h4>Python para análise de dados.</h4>
+              <div class="course-rating">
+                <div class="stars">
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                </div>
+                <span>5.0 (150 avaliações)</span>
+              </div>
+            </div>
+
+            <div class="related-course-card">
+              <div class="related-course-icon" style="background: #10b981">
+                <i class="ph ph-database"></i>
+              </div>
+              <h4>SQL para Análise de Dados.</h4>
+              <div class="course-rating">
+                <div class="stars">
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                </div>
+                <span>5.0 (110 avaliações)</span>
+              </div>
+            </div>
+
+            <div class="related-course-card">
+              <div
+                class="related-course-icon"
+                style="background: var(--color-primary)"
+              >
+                <i class="ph ph-pencil"></i>
+              </div>
+              <h4>Fundamentos de UI/UX para Ap...</h4>
+              <div class="course-rating">
+                <div class="stars">
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                  <i class="ph ph-star-fill"></i>
+                </div>
+                <span>5.0 (85 avaliações)</span>
+              </div>
+            </div>
+          </div>
+          <div class="view-more-container">
+            <a href="catalog.html" class="btn btn-primary">Ver mais cursos</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="js/user-profile.js"></script>
+    <script src="js/course-detail.js"></script>
+  </body>
+</html>

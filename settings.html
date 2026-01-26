@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configurações da Conta - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="settings-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="#" class="nav-link">Cursos</a>
+            <a href="#" class="nav-link">Para Empresas</a>
+            <a href="#" class="nav-link">Sobre Nós</a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar cursos..." />
+          </div>
+          <button class="icon-btn" aria-label="Notificações">
+            <i class="ph ph-bell"></i>
+          </button>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="dashboard.html">
+                <i class="ph ph-chart-line-up"></i>
+                Dashboard
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="settings-main">
+      <div class="settings-container">
+        <!-- Page Title -->
+        <div class="settings-header-section">
+          <h1>Configurações da Conta</h1>
+          <p>Gerencie suas preferências de conta, segurança e notificações.</p>
+        </div>
+
+        <div class="settings-content-wrapper">
+          <!-- ========== SIDEBAR ========== -->
+          <aside class="settings-sidebar">
+            <nav class="sidebar-nav">
+              <button class="sidebar-item active" data-tab="profile">
+                <i class="ph ph-user"></i>
+                <span>Perfil</span>
+              </button>
+              <button class="sidebar-item" data-tab="security">
+                <i class="ph ph-shield-check"></i>
+                <span>Senha e Segurança</span>
+              </button>
+              <button class="sidebar-item" data-tab="notifications">
+                <i class="ph ph-bell"></i>
+                <span>Notificações</span>
+              </button>
+              <button class="sidebar-item" data-tab="privacy">
+                <i class="ph ph-lock"></i>
+                <span>Privacidade</span>
+              </button>
+              <button
+                class="sidebar-item sidebar-item-danger"
+                data-tab="delete"
+              >
+                <i class="ph ph-x-square"></i>
+                <span>Deletar Conta</span>
+              </button>
+            </nav>
+          </aside>
+
+          <!-- ========== CONTENT AREA ========== -->
+          <div class="settings-content">
+            <!-- Aba Perfil -->
+            <div class="tab-content active" id="profile-tab">
+              <div class="settings-card profile-card">
+                <div class="card-header">
+                  <div class="card-header-icon">
+                    <i class="ph ph-user"></i>
+                  </div>
+                  <div>
+                    <h2>Perfil Público</h2>
+                    <p>Adicione informações sobre você</p>
+                  </div>
+                </div>
+
+                <form class="profile-form">
+                  <div class="profile-photo-section">
+                    <label>Foto de Perfil</label>
+                    <div class="profile-photo-wrapper">
+                      <img
+                        src="img/Mulher_pc.png"
+                        alt="Foto de perfil"
+                        class="profile-photo"
+                        id="profile-photo-img"
+                      />
+                      <button
+                        type="button"
+                        class="photo-edit-btn"
+                        aria-label="Editar foto"
+                      >
+                        <i class="ph ph-camera"></i>
+                      </button>
+                      <input
+                        type="file"
+                        id="profile-photo-input"
+                        accept="image/*"
+                        style="display: none;"
+                      />
+                    </div>
+                    <small style="display: block; margin-top: 4px; color: #666;">Clique no ícone da câmera para alterar a foto</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-name">Nome Completo</label>
+                    <input
+                      type="text"
+                      id="profile-name"
+                      placeholder="Digite seu nome completo"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-phone">Telefone</label>
+                    <input
+                      type="tel"
+                      id="profile-phone"
+                      placeholder="Digite seu telefone"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-email">E-mail</label>
+                    <input
+                      type="email"
+                      id="profile-email"
+                      placeholder="Digite seu e-mail"
+                      value=""
+                      readonly
+                      style="background-color: #f5f5f5;"
+                    />
+                    <small style="display: block; margin-top: 4px; color: #666;">E-mail não pode ser alterado</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-education">Nível de Educação</label>
+                    <select id="profile-education">
+                      <option value="">Selecione</option>
+                      <option value="fundamental">Ensino Fundamental</option>
+                      <option value="medio">Ensino Médio</option>
+                      <option value="superior">Ensino Superior</option>
+                      <option value="pos">Pós-graduação</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-birthdate">Data de Nascimento</label>
+                    <input
+                      type="text"
+                      id="profile-birthdate"
+                      placeholder="dd/mm/aaaa"
+                      maxlength="10"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-address">Endereço</label>
+                    <input
+                      type="text"
+                      id="profile-address"
+                      placeholder="Digite seu endereço"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="profile-objective">Objetivo de Aprendizagem</label>
+                    <select id="profile-objective">
+                      <option value="">Selecione</option>
+                      <option value="carreira">Desenvolvimento de Carreira</option>
+                      <option value="pessoal">Crescimento Pessoal</option>
+                      <option value="academico">Aperfeiçoamento Acadêmico</option>
+                      <option value="negocio">Empreendedorismo</option>
+                    </select>
+                  </div>
+
+                  <div class="form-divider"></div>
+
+                  <div class="social-links-section">
+                    <h3>Links Sociais</h3>
+
+                    <div class="form-group">
+                      <label for="profile-linkedin">LinkedIn</label>
+                      <div class="input-with-icon">
+                        <i class="ph ph-linkedin-logo"></i>
+                        <input
+                          type="url"
+                          id="profile-linkedin"
+                          placeholder="url do seu perfil"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="profile-github">GitHub</label>
+                      <div class="input-with-icon">
+                        <i class="ph ph-github-logo"></i>
+                        <input
+                          type="url"
+                          id="profile-github"
+                          placeholder="url do seu perfil"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="profile-website">Website ou Portfólio</label>
+                      <div class="input-with-icon">
+                        <i class="ph ph-link"></i>
+                        <input
+                          type="url"
+                          id="profile-website"
+                          placeholder="https://"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      id="open-edit-modal"
+                    >
+                      Alterar dados
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Salvar Alterações
+                      <i class="ph ph-arrow-right"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Aba Senha e Segurança -->
+            <div class="tab-content" id="security-tab">
+              <div class="settings-card security-card">
+                <div class="card-header">
+                  <div class="card-header-icon">
+                    <i class="ph ph-shield-check"></i>
+                  </div>
+                  <div>
+                    <h2>Senha e Segurança</h2>
+                    <p>Atualize sua senha e proteja sua conta</p>
+                  </div>
+                </div>
+
+                <form class="security-form">
+                  <div class="form-group">
+                    <label for="current-password">Senha Atual</label>
+                    <div class="password-input-wrapper">
+                      <input
+                        type="password"
+                        id="current-password"
+                        placeholder="Digite sua senha atual"
+                      />
+                      <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="current-password"
+                      >
+                        <i class="ph ph-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="new-password">Nova Senha</label>
+                    <div class="password-input-wrapper">
+                      <input
+                        type="password"
+                        id="new-password"
+                        placeholder="Digite sua nova senha"
+                      />
+                      <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="new-password"
+                      >
+                        <i class="ph ph-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="confirm-password">Confirmar Nova Senha</label>
+                    <div class="password-input-wrapper">
+                      <input
+                        type="password"
+                        id="confirm-password"
+                        placeholder="Confirme sua nova senha"
+                      />
+                      <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="confirm-password"
+                      >
+                        <i class="ph ph-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="security-options">
+                    <div class="security-option">
+                      <div class="option-info">
+                        <h4>Autenticação de Dois Fatores</h4>
+                        <p>
+                          Adicione uma camada extra de segurança à sua conta
+                        </p>
+                      </div>
+                      <label class="toggle-switch">
+                        <input type="checkbox" id="two-factor" />
+                        <span class="toggle-slider"></span>
+                      </label>
+                    </div>
+
+                    <div class="security-option">
+                      <div class="option-info">
+                        <h4>Notificação de login suspeito</h4>
+                        <p>
+                          Receba um alerta quando houver um login de um
+                          dispositivo desconhecido
+                        </p>
+                      </div>
+                      <label class="toggle-switch">
+                        <input type="checkbox" id="suspicious-login" checked />
+                        <span class="toggle-slider"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                      Salvar Alterações
+                      <i class="ph ph-arrow-right"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Aba Notificações -->
+            <div class="tab-content" id="notifications-tab">
+              <div class="settings-card notifications-card">
+                <div class="card-header">
+                  <div class="card-header-icon">
+                    <i class="ph ph-bell"></i>
+                  </div>
+                  <div>
+                    <h2>Notificações</h2>
+                    <p>Escolha como você quer ser notificado</p>
+                  </div>
+                </div>
+
+                <div class="notifications-options">
+                  <div class="notification-option">
+                    <div class="option-info">
+                      <h4>Notificações por E-mail</h4>
+                      <p>Receba novidades sobre cursos e promoções</p>
+                    </div>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="email-notifications" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+
+                  <div class="notification-option">
+                    <div class="option-info">
+                      <h4>Notificações Push</h4>
+                      <p>
+                        Alertas sobre o progresso do seu curso no seu
+                        dispositivo
+                      </p>
+                    </div>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="push-notifications" />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+
+                  <div class="notification-option">
+                    <div class="option-info">
+                      <h4>Newsletter Semanal</h4>
+                      <p>Conteúdo selecionado e dicas de aprendizado</p>
+                    </div>
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="newsletter" checked />
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="save-notifications"
+                  >
+                    Salvar Alterações
+                    <i class="ph ph-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aba Privacidade -->
+            <div class="tab-content" id="privacy-tab">
+              <div class="settings-card privacy-card">
+                <div class="card-header">
+                  <div class="card-header-icon">
+                    <i class="ph ph-lock"></i>
+                  </div>
+                  <div>
+                    <h2>Privacidade</h2>
+                    <p>Controle a visibilidade do seu perfil e seus dados</p>
+                  </div>
+                </div>
+
+                <div class="privacy-options">
+                  <div class="privacy-section">
+                    <h3>Visibilidade do Perfil</h3>
+                    <p>Decida quem pode ver seu perfil e progresso</p>
+
+                    <div class="radio-cards">
+                      <label class="radio-card">
+                        <input
+                          type="radio"
+                          name="profile-visibility"
+                          value="public"
+                          checked
+                        />
+                        <div class="radio-card-content">
+                          <i class="ph ph-globe"></i>
+                          <span>Público</span>
+                        </div>
+                      </label>
+                      <label class="radio-card">
+                        <input
+                          type="radio"
+                          name="profile-visibility"
+                          value="private"
+                        />
+                        <div class="radio-card-content">
+                          <i class="ph ph-lock"></i>
+                          <span>Privado</span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="privacy-section">
+                    <div class="privacy-option">
+                      <div class="option-info">
+                        <h4>Consentimento de uso de dados</h4>
+                        <p>
+                          Permitir que a EducaPro use seus dados para recomendar
+                          cursos
+                        </p>
+                      </div>
+                      <label class="toggle-switch">
+                        <input type="checkbox" id="data-consent" checked />
+                        <span class="toggle-slider"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="privacy-section">
+                    <h3>Gerenciar seus dados</h3>
+                    <p>
+                      Você pode solicitar uma cópia de todos os seus dados
+                      armazenados no EducaPro
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      id="download-data"
+                    >
+                      <i class="ph ph-cloud-arrow-down"></i>
+                      Baixar meus dados
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="save-privacy"
+                  >
+                    Salvar Alterações
+                    <i class="ph ph-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aba Deletar Conta -->
+            <div class="tab-content" id="delete-tab">
+              <div class="settings-card delete-card">
+                <div class="card-header">
+                  <div class="card-header-icon delete-icon">
+                    <i class="ph ph-warning"></i>
+                  </div>
+                  <div>
+                    <h2>Excluir Conta</h2>
+                  </div>
+                </div>
+
+                <div class="delete-content">
+                  <p class="delete-warning">
+                    Esta ação é permanente e não pode ser desfeita.
+                  </p>
+                  <p class="delete-description">
+                    Ao excluir sua conta, você perderá acesso a todos os seus
+                    cursos, certificados e histórico de progresso. Seus dados
+                    pessoais serão removidos de nossos sistemas de acordo com
+                    nossa política de privacidade.
+                  </p>
+                  <p class="delete-instruction">
+                    Se você tem certeza, clique no botão abaixo.
+                  </p>
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-delete"
+                    id="delete-account-btn"
+                  >
+                    Excluir minha conta permanentemente
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== MODAL ALTERAR DADOS ========== -->
+    <div class="modal-overlay" id="edit-modal-overlay">
+      <div class="modal" id="edit-modal">
+        <div class="modal-content">
+          <button class="modal-close" id="close-edit-modal">
+            <i class="ph ph-x"></i>
+          </button>
+          <h2 class="modal-title">Alterar dados</h2>
+          <form class="modal-form" id="edit-data-form">
+            <div class="form-group">
+              <label for="edit-name">Nome</label>
+              <input
+                type="text"
+                id="edit-name"
+                placeholder="Digite seu nome"
+                value="Keila Silva"
+              />
+            </div>
+            <div class="form-group">
+              <label for="edit-username">Nome de User</label>
+              <input
+                type="text"
+                id="edit-username"
+                placeholder="Digite seu nome de usuário"
+                value="keila_silva"
+              />
+            </div>
+            <div class="form-group">
+              <label for="edit-email">Adicionar um novo e-mail</label>
+              <input
+                type="email"
+                id="edit-email"
+                placeholder="Digite um novo e-mail"
+              />
+            </div>
+            <div class="form-group">
+              <label for="edit-gender">Gênero</label>
+              <select id="edit-gender">
+                <option value="">Selecione</option>
+                <option value="feminino" selected>Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="outro">Outro</option>
+                <option value="prefiro-nao-dizer">Prefiro não dizer</option>
+              </select>
+            </div>
+            <div class="modal-actions">
+              <button type="submit" class="btn btn-primary">Alterar</button>
+              <a href="#" class="modal-link" id="back-to-profile">
+                ← Voltar para o perfil
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/user-profile.js"></script>
+    <script src="js/settings-profile.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

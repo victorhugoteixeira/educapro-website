@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Playlist - EducaPro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/library.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="library-header">
+      <div class="header-container">
+        <div class="header-left">
+          <a href="index.html" class="logo">
+            <img
+              src="img/logo-EducaPro (3).png"
+              alt="EducaPro Logo"
+              class="logo-img"
+            />
+          </a>
+          <nav class="header-nav">
+            <a href="dashboard.html" class="nav-link">
+              <i class="ph ph-chart-line-up"></i>
+              Progresso
+            </a>
+            <a href="library.html" class="nav-link active">
+              <i class="ph ph-books"></i>
+              Biblioteca
+            </a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <a
+            href="notifications.html"
+            class="icon-btn"
+            aria-label="Notificações"
+          >
+            <i class="ph ph-bell"></i>
+          </a>
+          <div class="user-menu">
+            <button class="user-menu-btn" aria-label="Menu do usuário">
+              <img src="img/Mulher_pc.png" alt="Perfil" class="user-avatar" />
+              <i class="ph ph-caret-down"></i>
+            </button>
+            <div class="user-dropdown">
+              <a href="settings.html">
+                <i class="ph ph-gear"></i>
+                Configurações
+              </a>
+              <a href="index.html">
+                <i class="ph ph-sign-out"></i>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="library-main">
+      <div class="library-container">
+        <a href="library.html" class="back-link">
+          <i class="ph ph-arrow-left"></i>
+          Voltar para a Biblioteca
+        </a>
+
+        <div class="playlist-detail">
+          <div class="playlist-detail-header">
+            <h2 id="playlist-detail-title">Frontend Essencial</h2>
+            <button class="edit-name-btn" id="edit-playlist-name">
+              <i class="ph ph-pencil"></i>
+              Editar Nome
+            </button>
+          </div>
+
+          <p class="playlist-detail-description">
+            Uma coleção dos melhores cursos para dominar o desenvolvimento
+            frontend moderno.
+          </p>
+
+          <div class="playlist-courses-section">
+            <h3>
+              Cursos na Playlist (<span id="playlist-course-count">2</span>)
+            </h3>
+
+            <div class="playlist-courses-list" id="playlist-courses-list">
+              <div class="playlist-course-item">
+                <div class="course-icon" style="background: #10b981">
+                  <span>J</span>
+                </div>
+                <div class="course-info">
+                  <h4>JavaScript Avançado</h4>
+                  <p>Por Carlos Mendes</p>
+                  <span class="course-meta">Visto hoje</span>
+                </div>
+                <button class="remove-course-btn" data-course="1">
+                  <i class="ph ph-x"></i>
+                </button>
+              </div>
+
+              <div class="playlist-course-item">
+                <div
+                  class="course-icon"
+                  style="background: var(--color-primary)"
+                >
+                  <span>R</span>
+                </div>
+                <div class="course-info">
+                  <h4>Dominando React</h4>
+                  <p>Por Ana Paula</p>
+                  <span class="course-meta">Visto ontem</span>
+                </div>
+                <button class="remove-course-btn" data-course="2">
+                  <i class="ph ph-x"></i>
+                </button>
+              </div>
+            </div>
+
+            <button
+              class="btn btn-primary btn-add-course"
+              id="add-course-to-playlist"
+            >
+              <i class="ph ph-plus"></i>
+              Adicionar curso a Playlist
+            </button>
+          </div>
+
+          <div class="playlist-actions">
+            <button class="btn-danger-text" id="delete-playlist-btn">
+              <i class="ph ph-trash"></i>
+              Excluir Playlist
+            </button>
+            <button class="btn btn-primary" id="save-playlist-btn">
+              Salvar Alterações
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/user-profile.js"></script>
+    <script src="js/library.js"></script>
+  </body>
+</html>
